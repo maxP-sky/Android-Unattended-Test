@@ -3,33 +3,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    tools:context=".RewardsActivity"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:text="Good Afternoon User"
-        android:textAlignment="center"
-        android:textSize="20dp"
-        android:paddingTop="15dp" />
-
-
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/channelRecyclerView"
+        android:id="@+id/rewardsRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="490dp"
-        android:minHeight="490dp"
-        android:layout_marginTop="10dp">
+        android:layout_height="610dp"
+        android:minHeight="610dp">
 
     </android.support.v7.widget.RecyclerView>
 
     <Button
-        android:id="@+id/viewRewardsButton"
+        android:id="@+id/button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="VIEW REWARDS"
+        android:text="BACK TO HOME"
         android:textColor="@color/blue"
         android:background="#FFFFFF"/>
 
