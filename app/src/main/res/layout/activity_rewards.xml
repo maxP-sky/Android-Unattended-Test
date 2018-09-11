@@ -6,10 +6,28 @@
     tools:context=".RewardsActivity"
     android:orientation="vertical">
 
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+        <TextView
+            android:id="@+id/accountNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="Account: "
+            android:textAlignment="center"
+            android:textSize="20dp"
+            android:fontFamily="monospace" />
+
+    </android.support.v7.widget.CardView>
+
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rewardsRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="610dp"
+        android:layout_height="540dp"
+        android:minHeight="540dp"
         >
 
     </android.support.v7.widget.RecyclerView>

@@ -12,10 +12,9 @@ import com.example.mpe12.loyaltyrewards.controllers.ChannelController
 
 
 class MainActivity : AppCompatActivity() {
-    private val account : String
+    private var account : String
     private val channelController : ChannelController = ChannelController()
-    lateinit var channelRecyclerView: RecyclerView
-    lateinit var channelAdpater : ChannelAdapter
+    lateinit var channelAdapter : ChannelAdapter
 
     init {
         // Set Fake Channels (subscriptions)
@@ -37,11 +36,11 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        channelRecyclerView = findViewById(R.id.channelRecyclerView)
+        val channelRecyclerView : RecyclerView = findViewById(R.id.channelRecyclerView)
         channelRecyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
 
-        channelAdpater = ChannelAdapter(channelController.channels)
-        channelRecyclerView.adapter = channelAdpater
+        channelAdapter = ChannelAdapter(channelController.channels)
+        channelRecyclerView.adapter = channelAdapter
 
     }
 }

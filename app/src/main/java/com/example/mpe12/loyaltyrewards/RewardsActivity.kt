@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 
 import android.util.Log
+import android.widget.TextView
 
 import com.example.mpe12.loyaltyrewards.adapters.RewardAdapter
 import com.example.mpe12.loyaltyrewards.api.Request
@@ -34,6 +35,10 @@ class RewardsActivity : AppCompatActivity() {
         // Set Recycler View Adapter for RewardAdapter
         adapter = RewardAdapter(rewardController.rewards)
         rewardRecyclerView.adapter = adapter
+
+        val accountNumberTextView : TextView = findViewById(R.id.accountNumber)
+        accountNumberTextView.text = "Rewards for Account: ${intent.getStringExtra("accountNumber")}"
+
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -57,6 +62,7 @@ class RewardsActivity : AppCompatActivity() {
                         loadRewardsView()
                     } else {
                         Log.i("Response Failed", response?.code()?.toString())
+
                     }
                 }
             }
