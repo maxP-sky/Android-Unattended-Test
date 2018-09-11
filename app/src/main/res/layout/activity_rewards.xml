@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    tools:context=".RewardsActivity"
     android:orientation="vertical">
 
     <android.support.v7.widget.CardView
@@ -11,13 +11,12 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp">
         <TextView
-            android:id="@+id/channelText"
+            android:id="@+id/accountNumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:text="Good Afternoon"
+            android:text="Account: "
             android:textAlignment="center"
-            android:textStyle="bold"
             android:textSize="20dp"
             android:fontFamily="monospace" />
 
@@ -25,21 +24,20 @@
 
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/channelRecyclerView"
+        android:id="@+id/rewardsRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="475dp"
-        android:minHeight="475dp"
-        android:layout_marginTop="10dp">
+        android:layout_height="540dp"
+        android:minHeight="540dp"
+        >
 
     </android.support.v7.widget.RecyclerView>
 
     <Button
-        android:id="@+id/viewRewardsButton"
+        android:id="@+id/button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="VIEW REWARDS"
+        android:text="BACK TO HOME"
         android:textColor="@color/blue"
-        android:fontFamily="monospace"
         android:background="#FFFFFF"/>
 
 </LinearLayout>
