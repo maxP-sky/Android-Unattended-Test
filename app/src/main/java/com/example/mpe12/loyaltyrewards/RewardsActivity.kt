@@ -1,18 +1,21 @@
 package com.example.mpe12.loyaltyrewards
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+
 import android.util.Log
-import android.widget.Toast
+
 import com.example.mpe12.loyaltyrewards.adapters.RewardAdapter
 import com.example.mpe12.loyaltyrewards.api.Request
 import com.example.mpe12.loyaltyrewards.controllers.RewardController
-import com.example.mpe12.loyaltyrewards.enums.RewardEnum
 import com.example.mpe12.loyaltyrewards.models.Reward
-import retrofit2.Callback
 import com.example.mpe12.loyaltyrewards.models.RewardsData
+import com.example.mpe12.loyaltyrewards.mutators.RewardIntentMutator
+
+import retrofit2.Callback
 import retrofit2.Call
 import retrofit2.Response
 
@@ -20,35 +23,27 @@ class RewardsActivity : AppCompatActivity() {
     private val request : Request = Request()
     private val rewardController : RewardController = RewardController()
     lateinit var adapter : RewardAdapter
-    lateinit var rewardRecyclerView: RecyclerView
 
-    private fun getSubscriptionsViaChannels(channels : ArrayList<String>) : String {
-        return channels.joinToString(",")
+    private fun loadRewardsView() {
+        // Set Layout Manager for RecyclerView
+        setContentView(R.layout.activity_rewards)
+
+        val rewardRecyclerView : RecyclerView = findViewById(R.id.rewardsRecyclerView)
+        rewardRecyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+
+        // Set Recycler View Adapter for RewardAdapter
+        adapter = RewardAdapter(rewardController.rewards)
+        rewardRecyclerView.adapter = adapter
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_rewards)
+        setContentView(R.layout.loading)
 
-        rewardRecyclerView = findViewById(R.id.rewardsRecyclerView)
-        rewardRecyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-        // Set Recycler View Adapter for  RewardAdapter
-        adapter = RewardAdapter(rewardController.rewards)
-        rewardRecyclerView.adapter = adapter
+        val (subscriptions, accountNumber) = RewardIntentMutator(intent)
 
-        // Pull channels Intent from MainActivity
-        val stringArray : ArrayList<String> = intent.getStringArrayListExtra("channels")
+        val callback = createRequestCallback()
 
-        // Convert ArrayList to channels Query!!
-        val subscriptions = getSubscriptionsViaChannels(stringArray)
-
-        // Pull accountNumber from MainActivity
-        val accountNumber = intent.getStringExtra("accountNumber")
-
-        // Create request callback
-        val callback : Callback<RewardsData> = createRequestCallback()
-
-        // Call callback
         request.getService(callback, subscriptions, accountNumber)
     }
 
@@ -56,15 +51,18 @@ class RewardsActivity : AppCompatActivity() {
         return object : Callback<RewardsData> {
             override fun onResponse(call: Call<RewardsData>?, response: Response<RewardsData>?) {
                 response?.isSuccessful.let {
-                    val rewards : ArrayList<Reward>? = response?.body()?.rewards
-                    Log.i("RewardsActivity", rewards.toString())
-                    rewardController.setRewards(rewards)
-                    adapter.notifyDataSetChanged()
+                    if (it == true) {
+                        val rewards : ArrayList<Reward>? = response?.body()?.rewards
+                        rewardController.setRewards(rewards)
+                        loadRewardsView()
+                    } else {
+                        Log.i("Response Failed", response?.code()?.toString())
+                    }
                 }
             }
 
             override fun onFailure(call: Call<RewardsData>?, t: Throwable?) {
-                Log.i("RewardsActivity", t.toString())
+                Log.i("Failure", t.toString())
             }
         }
     }

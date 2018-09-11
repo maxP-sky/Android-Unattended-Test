@@ -10,7 +10,7 @@
         android:id="@+id/rewardsRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="610dp"
-        android:minHeight="610dp">
+        >
 
     </android.support.v7.widget.RecyclerView>
 

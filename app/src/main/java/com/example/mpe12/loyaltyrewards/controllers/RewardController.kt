@@ -16,6 +16,12 @@ class RewardController {
     val rewards : ArrayList<RewardEnum> = ArrayList()
 
     fun setRewards(newRewards : ArrayList<Reward>?) {
-        newRewards?.forEach { rewards.add(getReward(it.code)) }
+        newRewards?.forEach {
+            val rewardEnum = getReward(it.code)
+
+            if (rewardEnum != RewardEnum.NA) {
+                rewards.add(rewardEnum)
+            }
+        }
     }
 }

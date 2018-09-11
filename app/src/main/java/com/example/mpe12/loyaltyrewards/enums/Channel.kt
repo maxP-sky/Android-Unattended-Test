@@ -13,21 +13,21 @@ enum class Channel : ChannelInterface {
         override fun getCode() = "SPORTS"
         override fun getHumanized() = "Sports"
         override fun getDescription() = "Sports Package"
-        override fun getImage() = "https://www.sky.com/assets2/undefined-hero-3d2fb4a4.jpg?downsize=3900:*&output-format=jpg"
+        override fun getImage() = "https://cdn.footballbloggingawards.co.uk/wp-content/uploads/2018/05/sky-sports-logo-e1513690953801.png"
         override fun hasImage() = true
     },
     KIDS {
         override fun getCode() = "KIDS"
         override fun getHumanized() = "Kids"
         override fun getDescription() = "Kids Package"
-        override fun getImage() = "https://www.sky.com/assets2/sky-kids-hero-fb923749.png?downsize=3900:*&output-format=jpg"
+        override fun getImage() = "https://dm8eklel4s62k.cloudfront.net/images/sky/large/sky-kids-logo-17032016-1.png"
         override fun hasImage() = true
     },
     MUSIC {
         override fun getCode() = "MUSIC"
         override fun getHumanized() = "Music"
         override fun getDescription() = "Music Package"
-        override fun getImage() = "https://www.bensound.com/bensound-img/endlessmotion.jpg"
+        override fun getImage() = "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Sky_Music_-_Logo_2015.svg/1280px-Sky_Music_-_Logo_2015.svg.png"
         override fun hasImage() = true
     },
     NEWS {

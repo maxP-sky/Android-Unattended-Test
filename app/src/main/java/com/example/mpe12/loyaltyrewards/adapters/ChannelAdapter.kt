@@ -14,7 +14,7 @@ import kotlinx.android.synthetic.main.channel_item.view.*
 class ChannelAdapter(private val channels : ArrayList<Channel>) : RecyclerView.Adapter<ChannelAdapter.ChannelViewHolder>(){
     class ChannelViewHolder(view : View) : RecyclerView.ViewHolder(view) {
         val channelText : TextView = view.channelText
-        val descriptionText : TextView = view.descriptionText
+        val descriptionText : TextView = view.channelDescription
         val channelImage : ImageView = view.channelImageView
     }
 
