@@ -1,5 +1,6 @@
 package com.example.mpe12.loyaltyrewards
 
+import android.content.Intent
 import android.os.Bundle
 
 import android.support.v7.app.AppCompatActivity
@@ -15,6 +16,7 @@ import com.example.mpe12.loyaltyrewards.controllers.RewardController
 import com.example.mpe12.loyaltyrewards.models.Reward
 import com.example.mpe12.loyaltyrewards.models.RewardsData
 import com.example.mpe12.loyaltyrewards.mutators.RewardIntentMutator
+import kotlinx.android.synthetic.main.activity_rewards.*
 
 import retrofit2.Callback
 import retrofit2.Call
@@ -28,6 +30,11 @@ class RewardsActivity : AppCompatActivity() {
     private fun loadRewardsView() {
         // Set Layout Manager for RecyclerView
         setContentView(R.layout.activity_rewards)
+
+        backToHomeButton.setOnClickListener {
+            val intent = Intent(applicationContext, MainActivity::class.java)
+            startActivity(intent)
+        }
 
         val rewardRecyclerView : RecyclerView = findViewById(R.id.rewardsRecyclerView)
         rewardRecyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)

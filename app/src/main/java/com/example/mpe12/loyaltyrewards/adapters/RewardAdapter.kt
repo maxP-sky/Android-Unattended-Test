@@ -12,12 +12,12 @@ import com.example.mpe12.loyaltyrewards.enums.RewardEnum
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.reward_item.view.*
 
-
 class RewardAdapter(private val rewards : ArrayList<RewardEnum>) : RecyclerView.Adapter<RewardAdapter.RewardViewHolder>() {
     class RewardViewHolder(view : View) : RecyclerView.ViewHolder(view) {
         val rewardText : TextView = view.rewardText
         val rewardDescription : TextView = view.rewardDescription
         val rewardImage : ImageView = view.rewardImageView
+        val rewardCode : TextView = view.rewardCode
     }
 
     override fun getItemCount(): Int = rewards.size
@@ -33,8 +33,9 @@ class RewardAdapter(private val rewards : ArrayList<RewardEnum>) : RecyclerView.
 
         val reward = rewards[position]
 
-        holder.rewardText.text = "Code: ${reward.getCode()}"
+        holder.rewardText.text = reward.getTitle()
         holder.rewardDescription.text = reward.getDescription()
+        holder.rewardCode.text = "REWARD CODE: ${reward.getCode()}"
 
         // Check if image is active
         if (reward.hasImage()) {

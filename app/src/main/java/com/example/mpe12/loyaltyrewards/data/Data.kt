@@ -24,7 +24,7 @@ fun createRandomAccount() : String {
 
 fun createMockChannels() : ArrayList<String> {
     val arrayOfChannels : ArrayList<String> = ArrayList()
-    val randomSelection = createRandomNumber()
+    val randomSelection : Int = 5
 
     if (randomSelection == 1) {
         arrayOfChannels.add(selectAChannel(1))
