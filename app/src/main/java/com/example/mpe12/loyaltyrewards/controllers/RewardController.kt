@@ -8,7 +8,7 @@ fun getReward(rewardCode : String) : RewardEnum {
         "CHAMPIONS_LEAGUE_FINAL_TICKET" -> RewardEnum.CHAMPIONS_LEAGUE_FINAL_TICKET
         "KARAOKE_PRO_MICROPHONE" -> RewardEnum.KARAOKE_PRO_MICROPHONE
         "PIRATES_OF_THE_CARIBBEAN_COLLECTION" -> RewardEnum.PIRATES_OF_THE_CARIBBEAN_COLLECTION
-        else -> RewardEnum.NA
+        else -> RewardEnum.NONE
     }
 }
 
@@ -19,7 +19,7 @@ class RewardController {
         newRewards?.forEach {
             val rewardEnum = getReward(it.code)
 
-            if (rewardEnum != RewardEnum.NA) {
+            if (rewardEnum != RewardEnum.NONE) {
                 rewards.add(rewardEnum)
             }
         }

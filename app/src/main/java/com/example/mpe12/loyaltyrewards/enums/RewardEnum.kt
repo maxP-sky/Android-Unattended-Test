@@ -1,14 +1,6 @@
 package com.example.mpe12.loyaltyrewards.enums
 
-interface RewardInterface {
-    fun getCode() : String
-    fun getTitle() : String
-    fun getDescription() : String
-    fun getImage() : String
-    fun hasImage() : Boolean
-}
-
-enum class RewardEnum : RewardInterface {
+enum class RewardEnum : BaseEnum {
     CHAMPIONS_LEAGUE_FINAL_TICKET {
         override fun getTitle() = "Champions League Final"
         override fun getCode() = "CHAMPIONS_LEAGUE_FINAL_TICKET"
@@ -23,18 +15,18 @@ enum class RewardEnum : RewardInterface {
         override fun getImage() = "https://images-na.ssl-images-amazon.com/images/I/81GzTMOKjNL._SX425_.jpg"
         override fun hasImage() = true
     },
-    NA {
-        override fun getTitle() = "N/A"
-        override fun getCode() = "N/A"
-        override fun getDescription() = "No Deal for this package."
-        override fun getImage() = ""
-        override fun hasImage() = false
-    },
     PIRATES_OF_THE_CARIBBEAN_COLLECTION {
         override fun getTitle() = "Pirates of the Caribbean"
         override fun getCode() = "PIRATES_OF_THE_CARIBBEAN_COLLECTION"
         override fun getDescription() = "Pirates of the Carribean Collection DVD's, are you ready to Shiver me Timbers"
         override fun getImage() = "https://cdn3.movieweb.com/i/article/TfiyNyDRdYmLPJATz2q2Sbtvc78WvN/798:50/Pirates-Of-The-Caribbean-6-Production-Disney-Johnny.jpg"
         override fun hasImage() = true
+    },
+    NONE {
+        override fun getTitle() = "None"
+        override fun getCode() = "NONE"
+        override fun getDescription() = "No Deal for this package."
+        override fun getImage() = ""
+        override fun hasImage() = false
     },
 }

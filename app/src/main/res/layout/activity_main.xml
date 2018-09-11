@@ -7,6 +7,7 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+    <!-- Recycler View for Channels -->
     <android.support.v7.widget.RecyclerView
         android:id="@+id/channelRecyclerView"
         android:layout_width="390dp"
@@ -26,6 +27,7 @@
 
     </android.support.v7.widget.RecyclerView>
 
+    <!-- Button for RewardsActivity -->
     <Button
         android:id="@+id/viewRewardsButton"
         android:layout_width="match_parent"
@@ -38,7 +40,7 @@
         android:layout_marginTop="16dp"
         android:background="#FFFFFF"
         android:fontFamily="monospace"
-        android:text="VIEW REWARDS"
+        android:text="View Rewards"
         android:textStyle="bold"
         android:textColor="@color/blue"
         android:textSize="18dp"
