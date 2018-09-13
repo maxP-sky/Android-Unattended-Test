@@ -1,30 +1,6 @@
 var express = require('express');
 var app = express();
 
-const eligibilityResponse = (testMode) => {
-    switch(testMode) {
-        case "FAILURE": {
-            return {
-                eligibility: 'Technical failure exception',
-                error: {
-                    message: 'Service technical failure'
-                }
-            };
-        };
-        case "INVALID_ACCOUNT": {
-            return {
-                eligibility: 'Invalid account Number',
-                error: {
-                    message: 'The Supplied account number is invalid'
-                }
-            };
-        };
-        default: {
-            return { eligibility: testMode };
-        }
-    }
-};
-
 const rewardCodes = {
     'SPORTS': 'CHAMPIONS_LEAGUE_FINAL_TICKET',
     'KIDS': 'N/A',
@@ -32,29 +8,47 @@ const rewardCodes = {
     'NEWS': 'N/A',
     'MOVIES': 'PIRATES_OF_THE_CARIBBEAN_COLLECTION'
 };
+
+const getRewards = (req, testMode) => {
+    if (testMode === "CUSTOMER_ELIGIBLE") {
+        const subscriptions = req.query.subscriptions.split(',');
+        return subscriptions.map(sub => ({ code: rewardCodes[sub] }));
+    }
+    return [];
+};
+
+const eligibilityResponse = (testMode) => {
+    switch(testMode) {
+        case "FAILURE": {
+            return {
+                output: 'Technical failure exception',
+            };
+        };
+        case "INVALID_ACCOUNT": {
+            return {
+                output: 'Invalid account Number',
+            };
+        };
+        default: {
+            return { output: testMode };
+        }
+    }
+};
+
  
 app.get('/rewards', (req, res) => {
-   const eligibilty = eligibilityResponse(req.query.testMode || 'CUSTOMER_ELIGIBLE');
+   const testMode = req.query.testMode || 'CUSTOMER_ELIGIBLE';
+   const eligibility = eligibilityResponse(testMode);
    const { accountNumber, subscriptions } = req.query || {};
-   console.log(req.query);
+   const rewards = getRewards(req, testMode);
     
    if (accountNumber && subscriptions) {
-       const subscriptions = req.query.subscriptions.split(',');
-       const rewards = subscriptions.map(sub => ({ code: rewardCodes[sub] }));
-       res.send(Object.assign({}, eligibilty, { rewards }));
+       const response = Object.assign({}, { eligibility }, { rewards });
+       res.send(response);
    } else {
-       res.send(eligibilty);
+       const response = Object.assign({}, { eligibility }, { rewards });
+       res.send(response);
    }
 });
 
-app.get('/auth/get-customer', (req, res) => {
-    if (req.query.testMode === 'ALL') {
-        res.send({ accountNumber: '987654321', subscriptions: rewardCodes.keys() });
-    } else if (req.query.testMode === 'NONE' ){
-        res.send({ accountNumber: '987654321', subscriptions: ['KIDS', 'NEWS'] });
-    } else {
-        res.send({ accountNumber: '987654321', subscriptions: req.query.subscriptions.split(',') });
-    }
- });
- 
 app.listen(3000);

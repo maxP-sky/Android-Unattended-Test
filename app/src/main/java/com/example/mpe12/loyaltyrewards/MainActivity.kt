@@ -5,7 +5,9 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.widget.Button
+import android.widget.Toast
 import com.example.mpe12.loyaltyrewards.adapters.ChannelAdapter
 import com.example.mpe12.loyaltyrewards.data.Data
 import com.example.mpe12.loyaltyrewards.controllers.ChannelController
@@ -27,6 +29,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         title = ""
 
+
         val rewardsButton = findViewById<Button>(R.id.viewRewardsButton)
 
         // Set rewards button to pass accountNumber & channels through to RewardsActivity..
@@ -43,5 +46,10 @@ class MainActivity : AppCompatActivity() {
         channelAdapter = ChannelAdapter(channelController.channels)
         channelRecyclerView.adapter = channelAdapter
 
+        val message : String = intent.getStringExtra("REWARDS_ACTIVITY_MESSAGE") ?: ""
+
+        if (message != "") {
+            Toast.makeText(applicationContext, message, Toast.LENGTH_LONG).show()
+        }
     }
 }
