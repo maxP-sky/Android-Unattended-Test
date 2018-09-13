@@ -1,7 +1,5 @@
 package com.example.mpe12.loyaltyrewards.data
 
-import com.example.mpe12.loyaltyrewards.enums.Channel
-
 fun createRandomNumber() : Int {
     return  (1..5).shuffled().last()
 }

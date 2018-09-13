@@ -27,10 +27,6 @@ class RewardAdapter(private val rewards : ArrayList<RewardEnum>) : RecyclerView.
     }
 
     override fun onBindViewHolder(holder: RewardViewHolder, position: Int) {
-        // Check size of rewards Array
-
-        Log.i("RewardAdapter", itemCount.toString())
-
         val reward = rewards[position]
 
         holder.rewardText.text = reward.getTitle()

@@ -11,6 +11,8 @@ interface RequestService {
             @Query("subscriptions") subscriptions: String,
             @Query("accountNumber") accountNumber : String
     ) : Call<RewardsData>
+
+    @GET("/rewards")
     fun getRewards(
             @Query("subscriptions") subscriptions: String,
             @Query("accountNumber") accountNumber : String,

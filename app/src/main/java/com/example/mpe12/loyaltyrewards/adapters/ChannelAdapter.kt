@@ -26,7 +26,7 @@ class ChannelAdapter(private val channels : ArrayList<Channel>) : RecyclerView.A
     override fun onBindViewHolder(holder: ChannelViewHolder, position: Int) {
         val channel = channels[position]
 
-        holder.channelText.text = channel.getHumanized()
+        holder.channelText.text = channel.getTitle()
         holder.descriptionText.text = channel.getDescription()
 
         // Check if image is active
