@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView
 
 import android.util.Log
 import android.widget.TextView
+import android.widget.Toast
 
 import com.example.mpe12.loyaltyrewards.adapters.RewardAdapter
 import com.example.mpe12.loyaltyrewards.api.Request
@@ -22,7 +23,6 @@ import kotlinx.android.synthetic.main.activity_rewards.*
 import retrofit2.Callback
 import retrofit2.Call
 import retrofit2.Response
-
 
 class RewardsActivity : AppCompatActivity() {
     private val request: Request = Request()
@@ -64,17 +64,17 @@ class RewardsActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    private fun responseAction(rewards: ArrayList<Reward>?, eligible: Eligible?) {
+    fun responseAction(rewards: ArrayList<Reward>?, eligible: Eligible?) {
         if (eligible?.output == "CUSTOMER_ELIGIBLE") {
             rewardController.setRewards(rewards)
             loadRewardsView()
         } else {
             // For every other Eligibility Output than CUSTOMER_INELIGIBLE respond with output.
-            val message = when(eligible?.output) {
-                "CUSTOMER_INELIGIBLE" -> "Customer is not eligible"
-                else -> eligible?.output
+            if (eligible?.output == "CUSTOMER_INELIGIBLE") {
+                switchActivity("Customer is not eligible")
+            } else {
+                switchActivity(eligible?.output)
             }
-            switchActivity(message)
         }
     }
 
@@ -97,7 +97,9 @@ class RewardsActivity : AppCompatActivity() {
 
             override fun onFailure(call: Call<RewardsData>?, t: Throwable?) {
                 Log.i("Failure", t.toString())
-                switchActivity("")
+                if (t.toString().contains("Failed to connect")) {
+                    Toast.makeText(applicationContext, "Server has disconnected, Please wait", Toast.LENGTH_SHORT).show()
+                }
             }
         }
     }
