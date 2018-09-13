@@ -55,10 +55,7 @@ class RewardsActivity : AppCompatActivity() {
         setContentView(R.layout.loading)
 
         val (subscriptions, accountNumber) = RewardIntentMutator(intent)
-
-        val callback = createRequestCallback()
-
-        request.getService(callback, subscriptions, accountNumber)
+        request.getService(createRequestCallback(), subscriptions, accountNumber)
     }
 
     private fun switchActivity(message : String?) {

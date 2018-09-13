@@ -5,7 +5,6 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.util.Log
 import android.widget.Button
 import android.widget.Toast
 import com.example.mpe12.loyaltyrewards.adapters.ChannelAdapter
@@ -16,7 +15,7 @@ import com.example.mpe12.loyaltyrewards.controllers.ChannelController
 class MainActivity : AppCompatActivity() {
     private var account : String
     private val channelController : ChannelController = ChannelController()
-    lateinit var channelAdapter : ChannelAdapter
+    private lateinit var channelAdapter : ChannelAdapter
 
     init {
         // Set Fake Channels (subscriptions)
@@ -27,8 +26,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        title = ""
-
 
         val rewardsButton = findViewById<Button>(R.id.viewRewardsButton)
 
