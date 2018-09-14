@@ -53,6 +53,7 @@ class RewardsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.loading)
+        title = "Rewards"
 
         val (subscriptions, accountNumber) = RewardIntentMutator(intent)
         request.getService(createRequestCallback(), subscriptions, accountNumber)
