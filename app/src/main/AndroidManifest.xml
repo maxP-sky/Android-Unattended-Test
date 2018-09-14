@@ -22,7 +22,7 @@
         <activity
             android:name=".RewardsActivity"
             android:label="@string/title_activity_rewards"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme" />
     </application>
 
 </manifest>

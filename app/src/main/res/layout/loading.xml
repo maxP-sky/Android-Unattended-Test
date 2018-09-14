@@ -6,6 +6,7 @@
     android:layout_height="match_parent">
 
     <TextView
+        android:id="@+id/loadingTextView"
         android:layout_width="299dp"
         android:layout_height="49dp"
         android:layout_marginEnd="8dp"
@@ -16,7 +17,7 @@
         android:text="Loading ..."
         android:fontFamily="monospace"
         android:textAlignment="center"
-        android:textColor="@color/red"
+        android:textColor="@color/blue"
         android:textSize="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.507"
