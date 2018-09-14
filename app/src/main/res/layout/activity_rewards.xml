@@ -21,8 +21,8 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rewardsRecyclerView"
         android:layout_width="match_parent"
+        android:layout_height="490dp"
         android:layout_marginTop="20dp"
-        android:layout_height="540dp"
         android:minHeight="540dp" />
 
     <!-- Back to MainActivity Button-->

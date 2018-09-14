@@ -24,8 +24,6 @@ class MainActivityTest {
 
     @Test
     fun canSeeFirst4Channels() {
-        val recyclerView = activityTestRule.activity.findViewById<RecyclerView>(R.id.channelRecyclerView)
-
         // Button exists with text View Rewards
         onView(withId(R.id.viewRewardsButton)).check(matches(withText("View Rewards")))
         onView(withId(R.id.channelRecyclerView))

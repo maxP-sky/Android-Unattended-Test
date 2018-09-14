@@ -1,5 +1,6 @@
 package com.example.mpe12.loyaltyrewards.controllers
 
+import com.example.mpe12.loyaltyrewards.controllers.data.ChannelController
 import com.example.mpe12.loyaltyrewards.enums.Channel
 import org.junit.Test
 import org.junit.Assert.*

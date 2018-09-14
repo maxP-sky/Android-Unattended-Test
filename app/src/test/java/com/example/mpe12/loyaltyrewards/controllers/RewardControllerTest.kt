@@ -1,5 +1,6 @@
 package com.example.mpe12.loyaltyrewards.controllers
 
+import com.example.mpe12.loyaltyrewards.controllers.data.RewardController
 import com.example.mpe12.loyaltyrewards.enums.RewardEnum
 import com.example.mpe12.loyaltyrewards.models.Reward
 import org.junit.Test

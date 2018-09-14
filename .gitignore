@@ -33,6 +33,9 @@ captures/
 
 # Android studio IntelliJ folder
 .idea/**
+.idea/*
+.idea/
+.idea
 
 # Android Studio files
 *.iml

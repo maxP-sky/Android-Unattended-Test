@@ -1,4 +1,4 @@
-package com.example.mpe12.loyaltyrewards.controllers
+package com.example.mpe12.loyaltyrewards.controllers.data
 
 import com.example.mpe12.loyaltyrewards.enums.Channel
 
