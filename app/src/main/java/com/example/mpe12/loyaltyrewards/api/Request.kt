@@ -10,7 +10,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 // Only allow these methods for Request
 interface RequestEnum {
     fun getService(callback: Callback<RewardsData>, subscription: String, accountNumber: String) : Unit
-    fun getServiceViaTestMode(callback: Callback<RewardsData>, subscription : String, accountNumber : String, testMode : String) : Unit
+    fun getService(callback: Callback<RewardsData>, subscription : String, accountNumber : String, testMode : String) : Unit
 }
 
 fun createRequestService() : RequestService {
@@ -26,7 +26,7 @@ class Request : RequestEnum {
         val call = service.getRewards(subscription, accountNumber)
         call.enqueue(callback)
     }
-    override fun getServiceViaTestMode(callback: Callback<RewardsData>, subscription : String, accountNumber : String, testMode : String) {
+    override fun getService(callback: Callback<RewardsData>, subscription : String, accountNumber : String, testMode : String) {
         val call = service.getRewards(subscription, accountNumber, testMode)
         call.enqueue(callback)
     }
