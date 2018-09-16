@@ -23,10 +23,17 @@ enum class RewardEnum : BaseEnum {
         override fun hasImage() = true
     },
     NONE {
-        override fun getTitle() = "None"
+        override fun getTitle() = "No Rewards"
         override fun getCode() = "NONE"
-        override fun getDescription() = "No Deal for this package."
+        override fun getDescription() = "No Rewards with these subscriptions"
         override fun getImage() = ""
         override fun hasImage() = false
     },
+    ERROR {
+        override fun getTitle() = ""
+        override fun getCode() = ""
+        override fun getDescription() = ""
+        override fun getImage() = ""
+        override fun hasImage() = false
+    };
 }

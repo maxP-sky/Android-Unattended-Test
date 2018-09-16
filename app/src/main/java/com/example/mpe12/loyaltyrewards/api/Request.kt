@@ -2,6 +2,7 @@ package com.example.mpe12.loyaltyrewards.api
 
 import com.example.mpe12.loyaltyrewards.enums.Config
 import com.example.mpe12.loyaltyrewards.models.RewardsData
+
 import retrofit2.Callback
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

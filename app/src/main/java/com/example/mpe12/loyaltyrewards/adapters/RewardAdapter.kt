@@ -19,8 +19,6 @@ class RewardAdapter(private val rewards : ArrayList<RewardEnum>) : RecyclerView.
         val rewardCode : TextView = view.rewardCode
     }
 
-    override fun getItemCount(): Int = rewards.size
-
     override fun onCreateViewHolder(parent: ViewGroup, position: Int): RewardViewHolder {
         return RewardViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.reward_item, parent, false))
     }
@@ -32,9 +30,10 @@ class RewardAdapter(private val rewards : ArrayList<RewardEnum>) : RecyclerView.
         holder.rewardDescription.text = reward.getDescription()
         holder.rewardCode.text = "REWARD CODE: ${reward.getCode()}"
 
-        // Check if image is active
         if (reward.hasImage()) {
             Picasso.get().load(reward.getImage()).into(holder.rewardImage)
         }
     }
+
+    override fun getItemCount(): Int = rewards.size
 }
