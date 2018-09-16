@@ -25,6 +25,7 @@ class MainActivityViewController(private val activity : MainActivity) {
             val intent = Intent(activity, RewardsActivity::class.java)
             intent.putExtra("channels", channelController.channelsAsStrings)
             intent.putExtra("accountNumber", account)
+            intent.putExtra("shouldGetData", true)
             activity.startActivity(intent)
         }
 

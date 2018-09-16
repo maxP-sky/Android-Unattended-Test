@@ -19,9 +19,11 @@ class RewardIntentMutatorTest {
         val intent : Intent = mock(Intent::class.java)
         `when`(intent.getStringArrayListExtra("channels")).thenReturn(fakeChannels)
         `when`(intent.getStringExtra("accountNumber")).thenReturn(fakeAccountNumber)
+        `when`(intent.getBooleanExtra("shouldGetData", false)).thenReturn(true)
 
-        val (channels, accountNumber) = RewardIntentMutator(intent)
+        val (channels, accountNumber, shouldGetData) = RewardIntentMutator(intent)
         assertEquals(accountNumber, fakeAccountNumber)
         assertEquals(channels, "STR1,STR2")
+        assertEquals(shouldGetData, true)
     }
 }

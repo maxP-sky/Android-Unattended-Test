@@ -34,9 +34,9 @@ class RewardEnumTest {
     @Test
     fun noneCollection() {
         val enum : BaseEnum = RewardEnum.NONE
-        assertEquals(enum.getTitle(), "None")
+        assertEquals(enum.getTitle(), "No Rewards")
         assertEquals(enum.getCode(), "NONE")
-        assertEquals(enum.getDescription(), "No Deal for this package.")
+        assertEquals(enum.getDescription(), "No Rewards with these subscriptions")
         assertEquals(enum.getImage(), "")
         assertEquals(enum.hasImage(), false)
     }

@@ -1,16 +1,16 @@
 package com.example.mpe12.loyaltyrewards.data
 
-fun createRandomNumber() : Int {
-    return  (1..5).shuffled().last()
-}
+import com.example.mpe12.loyaltyrewards.enums.Channel
+
+fun createRandomNumber() : Int = (1..5).shuffled().last()
 
 fun selectAChannel(number : Int) : String {
     return when(number) {
-        1 -> "NEWS"
-        2 -> "MOVIES"
-        3 -> "MUSIC"
-        4 -> "KIDS"
-        5 -> "SPORTS"
+        1 -> Channel.NEWS.getCode()
+        2 -> Channel.MOVIES.getCode()
+        3 -> Channel.MUSIC.getCode()
+        4 -> Channel.KIDS.getCode()
+        5 -> Channel.SPORTS.getCode()
         else -> ""
     }
 }
@@ -22,7 +22,7 @@ fun createRandomAccount() : String {
 
 fun createMockChannels() : ArrayList<String> {
     val arrayOfChannels : ArrayList<String> = ArrayList()
-    val randomSelection : Int = 5
+    val randomSelection = createRandomNumber()
 
     if (randomSelection == 1) {
         arrayOfChannels.add(selectAChannel(1))

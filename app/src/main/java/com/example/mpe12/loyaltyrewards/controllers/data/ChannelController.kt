@@ -4,11 +4,11 @@ import com.example.mpe12.loyaltyrewards.enums.Channel
 
 fun getChannel(channel : String) : Channel {
     return when(channel) {
-        "SPORTS" -> Channel.SPORTS
-        "KIDS" -> Channel.KIDS
-        "MUSIC" -> Channel.MUSIC
-        "NEWS" -> Channel.NEWS
-        "MOVIES" -> Channel.MOVIES
+        Channel.SPORTS.getCode() -> Channel.SPORTS
+        Channel.KIDS.getCode()-> Channel.KIDS
+        Channel.MUSIC.getCode() -> Channel.MUSIC
+        Channel.NEWS.getCode() -> Channel.NEWS
+        Channel.MOVIES.getCode() -> Channel.MOVIES
         else -> Channel.NONE
     }
 }

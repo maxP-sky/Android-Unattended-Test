@@ -6,21 +6,16 @@ import android.support.test.espresso.matcher.ViewMatchers.*
 import android.support.test.rule.ActivityTestRule
 
 import android.support.test.runner.AndroidJUnit4
-import android.support.v7.widget.RecyclerView
-import org.junit.Before
+import com.example.mpe12.loyaltyrewards.data.Data
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.*
+import org.mockito.Mockito.*
 
 @RunWith(AndroidJUnit4::class)
 class MainActivityTest {
 
     @Rule @JvmField var activityTestRule = ActivityTestRule(MainActivity::class.java)
-
-    @Before
-    fun setUp() {
-
-    }
 
     @Test
     fun canSeeFirst4Channels() {

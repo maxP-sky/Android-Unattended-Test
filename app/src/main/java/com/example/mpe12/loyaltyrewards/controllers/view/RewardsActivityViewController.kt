@@ -17,6 +17,7 @@ class RewardsActivityViewController(private val activity : RewardsActivity) {
         activity.setContentView(R.layout.loading)
         activity.title = "Rewards"
     }
+
     fun setRewardsLayoutView(rewardController: RewardController, intent : Intent) {
 
         val backToHomeButton = activity.findViewById<Button>(R.id.backToHomeButton)
