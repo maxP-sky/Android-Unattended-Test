@@ -22,9 +22,9 @@ class RewardControllerTest {
 
         rewardController.setRewards(rewardDataArray)
 
-        assertEquals(rewardController.rewards.get(0), RewardEnum.CHAMPIONS_LEAGUE_FINAL_TICKET)
-        assertEquals(rewardController.rewards.get(1), RewardEnum.KARAOKE_PRO_MICROPHONE)
-        assertEquals(rewardController.rewards.get(2), RewardEnum.PIRATES_OF_THE_CARIBBEAN_COLLECTION)
+        assertEquals(RewardEnum.CHAMPIONS_LEAGUE_FINAL_TICKET, rewardController.rewards[0])
+        assertEquals(RewardEnum.KARAOKE_PRO_MICROPHONE, rewardController.rewards[1])
+        assertEquals(RewardEnum.PIRATES_OF_THE_CARIBBEAN_COLLECTION, rewardController.rewards[2])
 
         assertEquals(rewardController.rewards.size, 3)
     }
@@ -36,6 +36,6 @@ class RewardControllerTest {
         rewardDataArray.add(Reward("NONE"))
         rewardController.setRewards(rewardDataArray)
 
-        assertEquals(rewardController.rewards.get(0), RewardEnum.NONE)
+        assertEquals(rewardController.rewards[0], RewardEnum.NONE)
     }
 }

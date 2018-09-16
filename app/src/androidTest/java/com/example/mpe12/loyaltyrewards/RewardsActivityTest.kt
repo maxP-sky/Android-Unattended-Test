@@ -1,25 +1,19 @@
 package com.example.mpe12.loyaltyrewards
 
-import android.content.Intent
 import android.support.test.espresso.Espresso.onView
 import android.support.test.espresso.assertion.ViewAssertions
 import android.support.test.espresso.matcher.ViewMatchers
 import android.support.test.espresso.matcher.ViewMatchers.withText
 import android.support.test.rule.ActivityTestRule
 import android.support.test.runner.AndroidJUnit4
-import android.widget.Toast
-import com.example.mpe12.loyaltyrewards.controllers.data.RewardController
+
 import com.example.mpe12.loyaltyrewards.enums.RewardEnum
 import com.example.mpe12.loyaltyrewards.models.Eligible
 import com.example.mpe12.loyaltyrewards.models.Reward
-import org.junit.After
-import org.junit.Before
 
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.mockito.Mockito.*
-
 
 @RunWith(AndroidJUnit4::class)
 class RewardsActivityTest {

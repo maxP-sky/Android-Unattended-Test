@@ -1,6 +1,7 @@
 package com.example.mpe12.loyaltyrewards.api
 
 import com.example.mpe12.loyaltyrewards.models.RewardsData
+
 import retrofit2.http.GET
 import retrofit2.http.Query
 import retrofit2.Call

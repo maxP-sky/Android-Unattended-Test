@@ -33,7 +33,6 @@ captures/
 
 # Android studio IntelliJ folder
 .idea/**
-.idea/*
 .idea/
 .idea
 

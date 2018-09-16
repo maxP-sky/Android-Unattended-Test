@@ -18,7 +18,14 @@ class ChannelController {
     val channels : ArrayList<Channel> = ArrayList()
 
     fun setChannels(newChannels : ArrayList<String>) {
-        channelsAsStrings = newChannels
-        newChannels.forEach { channels.add(getChannel(it)) }
+        if (channels.size >= 1 && channelsAsStrings.size >= 1) {
+            channels.clear()
+            channelsAsStrings.clear()
+        }
+
+        newChannels.forEach {
+            channelsAsStrings.add(it)
+            channels.add(getChannel(it))
+        }
     }
 }

@@ -22,7 +22,16 @@ fun createRandomAccount() : String {
 
 fun createMockChannels() : ArrayList<String> {
     val arrayOfChannels : ArrayList<String> = ArrayList()
-    val randomSelection = createRandomNumber()
+    val randomSelection = createRandomNumber() // Change this to 1,2,3,4,5 to check what rewards match up to.
+    /*
+        Options:
+
+        1) News, Music and Sports subscriptions.
+        2) Movies and Kids subscriptions.
+        3) News and Sports subscriptions.
+        4) News and Movies subscriptions.
+        5) All subscriptions.
+    */
 
     if (randomSelection == 1) {
         arrayOfChannels.add(selectAChannel(1))
@@ -49,8 +58,10 @@ fun createMockChannels() : ArrayList<String> {
 }
 
 class Data {
-    companion object {
-        val fakeRandomChannels = createMockChannels()
-        val fakeRandomAccount = createRandomAccount()
+    fun fakeRandomChannels() : ArrayList<String> {
+        return createMockChannels()
+    }
+    fun fakeRandomAccount() : String {
+        return createRandomAccount()
     }
 }

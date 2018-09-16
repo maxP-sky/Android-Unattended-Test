@@ -19,8 +19,7 @@ class ChannelAdapter(private val channels : ArrayList<Channel>) : RecyclerView.A
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, position: Int): ChannelViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.channel_item, parent, false)
-        return ChannelViewHolder(view)
+        return ChannelViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.channel_item, parent, false))
     }
 
     override fun onBindViewHolder(holder: ChannelViewHolder, position: Int) {
@@ -29,7 +28,6 @@ class ChannelAdapter(private val channels : ArrayList<Channel>) : RecyclerView.A
         holder.channelText.text = channel.getTitle()
         holder.descriptionText.text = channel.getDescription()
 
-        // Check if image is active
         if (channel.hasImage()) {
             Picasso.get().load(channel.getImage()).into(holder.channelImage)
         }

@@ -3,6 +3,7 @@ package com.example.mpe12.loyaltyrewards.controllers.data
 import android.content.Intent
 import android.util.Log
 import android.widget.Toast
+
 import com.example.mpe12.loyaltyrewards.RewardsActivity
 import com.example.mpe12.loyaltyrewards.api.Request
 import com.example.mpe12.loyaltyrewards.enums.RewardEnum
@@ -10,6 +11,7 @@ import com.example.mpe12.loyaltyrewards.models.Eligible
 import com.example.mpe12.loyaltyrewards.models.Reward
 import com.example.mpe12.loyaltyrewards.models.RewardsData
 import com.example.mpe12.loyaltyrewards.mutators.RewardIntentMutator
+
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -29,6 +31,8 @@ class RewardController {
     private val request: Request = Request()
 
     fun setRewards(newRewards: ArrayList<Reward>?) {
+        if (rewards.size >= 1) rewards.clear()
+
         newRewards?.forEach {
             val rewardEnum = getReward(it.code)
 
@@ -39,10 +43,8 @@ class RewardController {
     }
 
     fun getData(activity: RewardsActivity, intent : Intent) {
-        // Set request for controller
         val (subscriptions, accountNumber, shouldGetData) = RewardIntentMutator(intent)
 
-        // If MainActivity intent sets shouldGetData as true
         if (shouldGetData) {
             request.getService(createRequestCallback(activity), subscriptions, accountNumber)
         }
@@ -56,10 +58,9 @@ class RewardController {
                         val rewards : ArrayList<Reward>? = response?.body()?.rewards
                         val eligible : Eligible? = response?.body()?.eligibility
 
-                        // Respond when rewards is empty and eligibility is present
                         activity.respondToResponse(rewards, eligible)
                     } else {
-                        Log.i("Response Failed", response?.code()?.toString())
+                        Log.i("Request Failed", response?.code()?.toString())
                         activity.switchActivity("")
                     }
                 }
@@ -67,7 +68,7 @@ class RewardController {
 
             override fun onFailure(call: Call<RewardsData>?, t: Throwable?) {
                 if (t.toString().contains("Failed to connect")) {
-                    Toast.makeText(activity.applicationContext, "Server has disconnected, Please wait", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(activity.applicationContext, "Server has disconnected, please wait", Toast.LENGTH_SHORT).show()
                 }
             }
         }

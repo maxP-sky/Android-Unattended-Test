@@ -12,7 +12,7 @@ import com.example.mpe12.loyaltyrewards.enums.RewardEnum
 import com.example.mpe12.loyaltyrewards.models.*
 
 class RewardsActivity : AppCompatActivity() {
-    private val controller: RewardController = RewardController()
+    val controller: RewardController = RewardController()
     private val viewController : RewardsActivityViewController = RewardsActivityViewController(this)
 
     private fun setRewardsView() {
@@ -39,7 +39,7 @@ class RewardsActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewController.setLayoutView(controller)
+        viewController.setLayoutView()
         controller.getData(this, intent)
     }
 

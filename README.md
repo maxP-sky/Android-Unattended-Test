@@ -36,11 +36,31 @@ To manipulate this here are the following options:
 
 The `getService` function was overloaded to utilise the ability to use `testMode` for the mock-server. (mock-server has README.md to cover this)
 
-## Pitfalls (Future points)
+# Mobile Application UI
+
+## Subscription Page
+<img src="docs/subscriptions.png" >
+
+## Loading Page
+<img src="docs/loading-page.png">
+
+## Rewards
+
+<img src="docs/rewards.png">
+<img src="docs/more-rewards.png">
+
+
+# Strong Points
+
+- Unit Testing
+- Attempted MVC
+- Adapter Use
+- Mocked Server
+
+# Pitfalls (Future points)
 
 - Fully Understanding Presenters
 - Caching
 - SQLite (local storage)
-
-# Mobile Application UI
+- Mocking the controller data a bit less hackily
 
